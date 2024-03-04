@@ -1,0 +1,15 @@
+package utils;
+
+import java.util.ArrayList;
+
+import customException.InvalidInputException;
+import tester.TestPms;
+
+public class PetsUtils {
+	
+	public static void checkForDuplicateId(int pid,ArrayList<TestPms> list) throws InvalidInputException{
+		TestPms p
+		
+	}
+
+}

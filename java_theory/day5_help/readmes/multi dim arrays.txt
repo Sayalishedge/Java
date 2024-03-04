@@ -1,0 +1,62 @@
+An array is a homogeneous data structure that stores data of the same type in contiguous memory locations. 
+
+Multidimensional Arrays can be thought of as nested arrays i.e an array inside the array 
+
+Elements inside a multidimensional array are arrays themselves. They can hold more than one row and column in tabular form. Java supports multidimensional arrays that are two, three, four, five, or more levels deep. BUT, arrays more than three levels deep are hard to manage.
+
+Introduction to Multidimensional Array in Java
+An array is a data structure to store a collection of values of the same type. The data can be accessed using its integer index. Since all the data is stored in contiguous memory locations, an array is always initialized with its size, and it cannot be changed while the program is running.
+
+Multidimensional arrays, like a 2D array is a bunch of 1D arrays put together in an array. A 3D array is like a bunch of 2D arrays put together in a 1D array, and so on. Data in multi-dimensional arrays are stored in row-major format, i.e., tabular form. To access array elements in multidimensional arrays, more than one index is used.
+
+Note: Java doesn't have multi-dimensional arrays. They are nested arrays.
+
+Multidimensional Array in Java
+
+Syntax of Multidimensional Array in Java
+The general syntax to declare a multi-dimensional array
+
+DataType[1st Dimension][2nd Dimension]....[Nth Dimension] arrayName;
+General syntax to initialize the array:
+
+arrayName = new DataTye[length 1][length 2]....[length N];
+Or
+
+DataType[1st Dimension][2nd Dimension]....[Nth Dimension] arrayName = new DataTye[length 1][length 2]....[length N];
+Here, DataType is the type of data to be stored in the array. The array can be 1 dimensional to N-dimensional. arrayName is the variable name given to the array and length is the size of the array of respective dimensions.
+
+Types of Multidimensional Array in Java
+Multidimensional array can be a 2D array, a 3D array, a 4D array, where D stands for Dimension. But the higher the dimension, the more difficult it is to access and store elements.
+
+
+
+1. Two-Dimensional Array or 2D Array.
+ The first index refers to a row number, and the second index refers to a column number. In Java, a two-dimensional array is nothing but a table or matrix with columns and rows. It is the simplest multi-dimensional array.
+
+a. Indirect Method of Declaration
+
+The indirect method is the method where the size of the array is declared, and array values are filled later. The two square brackets ([][]) can be written either after DataType or after arrayName.
+
+Syntax to initialize and declare a multidimensional array.
+
+A two-dimensional array can be declared as follows:
+
+DataType[][] arrayName;    (OR)    DataType arrayName[][];
+Initialization:
+
+arrayName = new DataType[length 1][length 2];
+Java is a statically-typed programming language, specifying DataType decides the type of element it will accept. arrayName is the variable name given to the array which will be used while accessing, manipulating, and storing data. length 1 is the number of rows in a two-dimensional array, and length 2 is the number of columns in it.
+
+Here, initially, all the array cells are filled with some default values.
+
+Note: Size of a two-dimensional array is 
+length1∗length2, 
+
+Number of elements in an array is 
+length1∗length2.
+
+eg : 
+
+Create  2D array with 3 rows and 4 columns , to hold integers.
+Init it with values starting from 10 (or accept it from user)
+Display the data.

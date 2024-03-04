@@ -1,0 +1,176 @@
+Today's topics
+
+Revise polymorphism
+Enter Abstraction
+Abstract classes n Interfaces
+
+
+
+When you write ,
+Student s1=new Student(.....);
+System.out.println(s1);
+
+How does above statement call s1.toString() ?????
+Ans : PrintStream (data type of System.out) : println(Object ref)
+---> Internally calls String.valueOf(ref) --> ref.toString()
+
+
+Revision through code 
+Solve :
+Fruit : super class
+public String taste()
+{
+ return "No specific taste";
+}
+
+Mango extends Fruit
+{
+
+@Override
+public String taste()
+{
+  return "sweet";
+}
+}
+Orange extends Fruit
+{
+ @Override
+public String taste()
+{
+  return "sour";
+}
+}
+Alphonso extends Mango
+{
+   @Override
+public String taste()
+{
+  return "very sweet n juicy";
+}
+}
+Apple extends Fruit 
+{
+    @Override
+  public String taste()
+ {
+   return "sweet n sour";
+ }   
+}
+
+
+Solve
+What will happen ?
+Fruit f=new Mango();//no err , up casting
+sop(f.taste());//sweet
+
+f=new Orange(...);
+sop(f.taste());//sour
+
+
+f=new Alphonso();//no javac err , up casting
+f.taste();//very sweet n juicy
+
+
+Object o=f;//up casting
+sop(o.taste());// javac err !!!!!!!!!!!!!!
+
+Soln : explicit downcasting
+
+When is downcasting necessary ?
+In the indirect referencing(i.e super cls ref---> sub class object eg : Object o=new Mango();) when you want to access sub class specific functionality (eg : taste()) , down casting is required .
+
+soln :
+Object o=f;//up casting
+//sop(o.taste());// javac err !!!!!!!!!!!!!!
+sop(((Alphonso)o).taste());
+
+Next Objective : Executing sub class specific functionality.
+Add a new method "study" in Student class & "teach" in Faculty class
+Option 5 : User i/p : seat no
+Check if seat no is valid .
+In case of valid seat no  --- If it's a Student , invoke study method , if it's a Faculty invoke teach method
+
+
+Are there any problems associated with wrong downcasting ? Yes
+
+java.lang.ClassCastExcpetion !
+
+
+
+Is there any guard or any way to perform RTTI(Run time type info) checking ? 
+
+1. instanceof keyword
+OR
+2. Using reflection (later)
+
+How to avoid class cast exc ?
+using instanceof keyword.
+
+
+Important : 
+When will you need to apply downcasting?
+In indirect referencing , when super cls ref ---> sub class object n trying to invoke sub class specific functionality
+
+Answer this
+
+eg ---Object <----Emp <---Mgr <---SalesMgr
+Object <---- Emp <--- Worker
+
+What will be o/p ?
+Emp e =new Mgr(...);
+e instanceof Mgr - true
+e instanceof Emp - true
+e instanceof Object -true 
+e instanceof SalesMgr  -- false
+e instanceof Worker -false
+e=null;
+e instanceof Emp/Mgr/SalesMgr/Worker/Object  --false
+
+
+Tester : Lab work 
+How will you create a basket of fruits ?
+How will you display tastes of all fruits ?
+
+
+
+1. Enter abstraction
+refer : :regarding abstraction"
+
+eg : Shapes scenario
+Solve this
+
+1. BoundedShape -- x,y (state) : tight encapsulation
+ctor : 2 args 
+public double area() : 
+@Override
+public String toString(){...}
+
+2. Circle -- x,y,radius
+Method --public double area()
+public String toString()
+
+3. Rectangle -- x,y,w,h
+Method --public double area()
+public String toString()
+
+eg : In a Tester 
+Create bounded shapes using dyn init of array.
+{c1,r1,c2,r2}
+Display it's info n area : for-each
+If area() is NOT defined in BoundedShape class
+for(BoundedShape s : shapes)
+ sop(s.area());
+
+Why Java Does not allow multiple inheritance ?
+Causes ambiguity !
+
+Can a class extend from multiple abstract super classes ?
+NO 
+
+
+What can you achieve using abstract classes ?
+Partial or Complete abstraction ? partial
+
+
+Enter interfaces.
+refer to readme : day6_help\interfaces_help\About interfaces.txt

@@ -1,0 +1,14 @@
+Revision
+upcasting , downcasting , instanceof , abstraction
+
+Continue with the interfaces
+1. Confirm indirect referencing
+2. Can 1 class implement multiple i/fs ? : YES
+Confirm
+3. Confirm multiple inheritance with i/fs
+Can 1 i/f extend from multiple super i/fs ?
+YES
+
+Confirm with code samples , supplied.
+
+Enter Exception Handling

@@ -1,0 +1,40 @@
+Revise JDBC
+1. Types of JDBC drivers
+2. JDBC steps
+
+Objectives
+1. Establish DB connection
+2. Test Statement
+sql : select * from users
+Display all users' details
+
+3. Test PreparedStatement
+4. Test user's CRUD using DAO n POJO layers
+Solve using Layers 
+Tester --DAO --DBUtils --POJO --DB
+
+1. Display user details for all users registered before a specific date n paying reg amt > specific amount
+
+2. User registration
+eg : 
+String registerUser(User userDetails) throws SE
+sql : insert into users values(default,?,?,?,?,?,'CUSTOMER');
+
+3. Update reg amount for a specific user
+i/p : user id , reg amount offset
+sql : update users set reg_amt=reg_amt+? where id=?
+
+4. Delete user details
+i/p : email 
+sql : delete from users where email=?
+
+
+
+
+
+
+
+
+
+
+

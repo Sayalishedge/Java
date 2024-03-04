@@ -1,0 +1,54 @@
+Revise n complete 
+Showroom management system using ArrayList
+
+Objective 
+
+1. Create empty AL to store vehicles in a showroom
+
+2. Accept  vehicle details from user n store it in AL(along with validation rules)
+
+2.5 After testing vehicle registration in showroom , add sample data to store 5 vehicles in the showroom.(for quick testing)
+
+3. Display all vehicle details
+Using for-each & also using Iterator(later)
+
+4. Fetch Vehicle details from AL
+i/p : PK (chasis no)
+o/p : in case of success : display vehicle details o.w throw custom exception
+API : indexOf , get
+
+5. Update Vehicle price
+i/p : chasis no & new price
+o/p : in case of success : update vehicle details o.w throw custom exception
+
+
+6. Delete vehicle details
+i/p : chasis no
+
+
+Sorting in Java 
+
+7. Sort the vehicles as per asc order of chasis no (use natural ordering)
+
+8. Sort the vehicles as per asc  order of  price (use custom ordering)
+
+0. Exit
+
+
+ArrayList vs Vector
+Refer : diagram
+
+ArrayList vs LinkedList
+Refer : "day11_help\linked_list\ArrayList_Vs_LinkedList.txt"
+
+
+
+
+
+
+
+
+
+
+
+

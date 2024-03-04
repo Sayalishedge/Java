@@ -1,0 +1,129 @@
+Revision
+
+Packages
+Access Specifiers
+Enter Arrays
+Regarding "static" keyword (Time permitting)
+
+0. Revise Garbage Collection 
+Refer : readme
+
+1. Revise with code sample
+
+TestBox 
+p.s.v. main(...)
+	{
+	Box b1;//ref type of var allocated on stack
+//	System.out.println(b1);//javac error
+       int data;//local var
+	//System.out.println(data);//javac error
+	b1=new Box(10,5,6);//class loading , 1 BOx object , b1 ---> Box object
+//	System.out.println(b1.width);//javac err : private
+	System.out.println(b1.getBoxDims());//prints Box's dims : 10.0, 5.0,6.0
+	System.out.println("Vol of the Box "+b1.getComputedVolume());//vol : 300.0
+	System.out.println(b1.hashCode());//prints addr of the Box object
+	Box b2=b1; //copy of refs
+	System.out.println(b2.hashCode()); //same addr as earlier
+	System.out.println(b2.getBoxDims());//prints same dims
+		
+	b1=null; //How many objs are marked for GC ?? 0
+//	System.out.println(b1.getBoxDims()); //run time err : Exception --java.lang.NullPointerException
+	System.out.println(b2.getBoxDims());//prints Box's dims : 10.0, 5.0,6.0
+	System.out.println("code continues 1");
+	b2=null;//How many objs are marked for GC ?? 1
+	//System.out.println(b2.getBoxDims());//NPE
+	System.out.println("code continues 2");
+	Box b3=new Box(1,2,3);
+        b3=new Box(2,3,4); //How many objs are marked for GC ?  1
+		
+	}
+}
+
+Do not use IDE
+Packages n classpath
+Refer : readme
+2. Add Box class under com.acts package n TestBox under com.acts.tester package n test it.
+2.1 Arrang the classes under <src> as per the packaged hierarchy
+2.2 compile from <src> 
+javac -d ..\bin com\acts\tester\TestBox.java
+
+3. Refer to diags :understanding access specifiers
+Set it up & confirm the table.
+
+
+Re Enter IDE
+4. Solve this as Lab work
+1. Create Cubes
+In TestBox :
+s.o.p("Enter side of a cube");
+Create a cube
+Box cube  =new Box(sc.nextDouble());
+
+2. Add a method to Box class to compare equality of 2 boxes.
+eg : Box b1=new Box(1,2,3);
+Box b2=new Box(3,2,1);
+//chk if 2 boxes are equal
+boolean status=b1.isEqual(b2);
+
+3. Add a method to Box class to return a new Box with modified offset dims & test it with the tester.
+: lab work
+eg : 1st Box dims 10,20,30
+User enters offsets in dims  as 3,-4,5
+2nd box should have dims 13,16,35
+Hint in TestBox :
+Box b1=new Box(sc.nextDouble(),sc.nextDouble(),sc.nextDouble());
+sop("Enter offsets in dims : wOff , dOff hOff");
+Box b2=b1.createNewBox(sc.nextDouble(),sc.nextDouble(),sc.nextDouble());
+
+
+3. Regarding Arrays
+refer -- Java Tut slides No  29
+In Java, arrays are full-fledged objects. Like objects, arrays are dynamically created & stored on the heap. 
+
+Arrays (like any other object) are  associated with the class. All arrays of the same dimension and type have the same class. The length of an array does not play any role in establishing the array's class. For example, an array of three ints has the same class as an array of three hundred ints.([I) The length of an array is considered part of its instance data.
+
+eg : The class name for single dimension array of ints is "[I". The class name for a three-dimensional array of bytes is "[[[B". The class name for single dimension array of booleans is "[Z"
+
+Array size(length) is fixed.Implicit super class of array is java.lang.Object.
+
+
+2.1 Create Array of primitive types
+
+Objective -- Accept no of data samples(of type double) from User(using scanner)
+Create suitable array & display it using for-loop , to confirm default values.
+
+Accept data from User(scanner) & store it in the array.
+Display array data using  for loop.
+
+Display array data using for-each loop
+
+for-each loop(enhanced for loop)
+syntax
+eg : Display array data using for-each loop
+
+Important statement
+Works on a copy of array element.
+
+for-each limitations
+1. Can only iterate from 1st elem to last elem , with step size +1
+2. Works on a copy of array elems
+(can't be used for modifying array elems).
+
+-----------------
+2.2 Array of references
+
+Create a tester class  : TestBoxArray :in the  "tester" package
+
+Objective : Ask user(client) , how many boxes to make ?
+Accept Box dims 
+
+Store these details suitably.
+
+1. Display using single for-each loop, box dims n volume
+
+---------------Pending--------------------
+
+2. Double box width for all boxes having volume > 100.(USE for-each & solve this)
+(lab work)
+
+

@@ -1,0 +1,27 @@
+package utils;
+
+import java.util.ArrayList;
+
+import customException.InvalidInputException;
+import tester.TestPms;
+
+public class PetsUtils {
+	
+	
+	public static boolean checkAdmin(String id,String pass)throws InvalidInputException{
+		if(id.equals("admin") && pass.equals("admin"))
+			return true;
+		return false;
+		
+	}
+	
+	
+	
+	
+	
+	public static void checkForDuplicateId(int pid,ArrayList<TestPms> list) throws InvalidInputException{
+		TestPms p
+		
+	}
+
+}

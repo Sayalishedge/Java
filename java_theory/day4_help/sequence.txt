@@ -1,0 +1,96 @@
+Today's Topics 
+
+Revise Arrays
+static keyword
+Enter Inheritance n later Polymorphism
+
+1. Revise :
+How to create array of primitive types? 
+eg : array of ints of size 100
+int[] ints=new int[100];
+
+Is array an object ? Yes
+Which class will be loaded for above array ? : [I
+(sop(ints.getClass()));
+Mem pic ???
+Stack : ints ---> array object in heap (CP --> array class loaded in method area) , length=100, 0---99 : 0
+
+Fill up the array : 1 --100
+for(int i=0;i<ints.length;i++)
+  ints[i]=i+1;
+
+
+1.1 Display array data using for-each loop
+for(int i : ints) //i=ints[0],i=ints[1]......i=ints[ints.length-1]
+ sop(i);
+sop(ints[ints.length]); //run time err : java.lang.ArrayIndexOutOfBoundsException , aborting the app.
+
+How will you run the class TestArrays , inside the pkg : tester
+java tester.TestArrays
+
+Important statements regarding for-each
+Works on a copy of array element.
+
+for-each limitations
+1. Can only iterate from 1st elem to last elem , with step size +1
+2. Works on a copy of array elems
+(can't be used for modifying array elems).
+
+
+1.2 Array of references
+
+Create a tester class  : TestPointsArray
+
+Objective : Ask user(client) , how many points to plot ?
+Accept x,y co-ordinates.
+Store these details suitably.
+Display using single for-each loop, x,y co ordinates of all the points
+
+eg : sop("Enter no of points to plot");
+Point2D[] points=new Point2D[sc.nextInt()];//UI : 3  , array class loaded , 1 array object created ,it's reference is strored in : points
+
+
+
+2. static keyword
+refer to readme
+
+3.
+Inheritance 
+refer to "readme inheritance.txt" from today's help.
+Person-Student-Faculty scenarion (constr invocation in inheritance hierarchy)
+
+
+What is inheritance ?
+Important part of OOP 
+Represents IS A relationship
+Higher hierarchy : super class
+lower hierarchy :sub class
+key word : extends
+As you go down the inheritance hierarchy --it's generailization ---> specialization
+Why : Reduces redundancy , increases re usability
+Universal super class : java.lang.Object
+
+
+eg : class Emp /*extends Object*/{....}
+class Mgr extends Emp {...}
+class SalesMgr extends Mgr {...}
+
+
+
+Types : single , multilevel  ,hierarchial , multiple (not supported) : ambiguity
+
+constr invocation in inheritance hierarchy : refer to diag.
+
+How to display details of student n faculty ?
+
+
+super keyword
+super keyword usages
+1. To invoke super cls constr (eg : super(fn,ln))
+2. To access super cls's accessible members (eg : super.toString())
+
+Important statements
+Sub class IS A super class + something more(addtional data members + methods) + something modofied(behaviour : methods : method overriding)
+
+
+

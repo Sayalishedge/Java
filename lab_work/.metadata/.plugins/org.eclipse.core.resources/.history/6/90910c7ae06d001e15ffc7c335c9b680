@@ -1,0 +1,21 @@
+package core;
+
+public class Admin {
+	private String loginId;
+	private String passwordA;
+	
+	public Admin(String loginId, String passwordA) {
+		super();
+		this.loginId = loginId;
+		this.passwordA = passwordA;
+	}
+
+	@Override
+	public String toString() {
+		return "Admin [loginId=" + loginId + ", passwordA=" + passwordA + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + ", toString()=" + super.toString() + "]";
+	}
+	
+	
+
+}

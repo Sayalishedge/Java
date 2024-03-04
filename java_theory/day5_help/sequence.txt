@@ -1,0 +1,83 @@
+Today's Topics 
+Continue with : Inheritance n  Polymorphism
+
+Revise
+Regarding inheritance 
+What is it ?
+Important part of OOP
+
+Represents which relationship between classes ? IS-A
+Classes in Upper hierarchy : super class / base class / parent
+Classes in  lower hierarchy : sub class / derived / child
+key word : extends
+Any examples : 
+Person <---- Student,Faculty,Emp , Accountant.....
+BankAccount <--- SavingAccount , CurrentAccount , LoanAccount <--- HomeLoan ,....
+
+Universal super class : java.lang.Object
+
+
+Supported Types of Inheritance in Java :  single , multi level , hierarchial 
+
+
+Multiple inheritance : not supported
+
+constr invocation in inheritance hierarchy : refer to diag.
+
+
+super keyword
+super keyword usages
+1. To invoke super cls constr (eg : super(fn,ln))
+2. To access super cls's accessible members (eg : super.getDetails()) from a subclass , in case of same names
+
+Important statements
+Sub class IS A super class + something more(addtional data members + methods) + something modified(behaviour : methods : method overriding)
+
+
+How to fetch details of person , student n faculty ?
+Instead of using our own , getDetails method, can we use java API ?
+Yes !
+
+
+Java API
+java.lang.Object : universal super class of all java classes
+public String toString() : what does it return : F.Q className @ hex hashCode
+What's the need of overriding toString : to replace "F.Q className @ hex hashCode"  by actual state of the object (non static data members=instance vars)
+
+Create a tester with direct n indirect referencing .
+
+To apply the concepts in a practical scenario : Develop Event Organizer app
+
+Prompt user for max no of participants (Student n Faculty)
+eg : Person[] members=new Person[sc.nextInt()];//100
+int counter=0;
+boolean exit=false;
+
+Menu
+1 : Register Student
+if(counter < members.length)
+{
+  sop("enter student dtls");
+  members[counter++]=new Student(.....);//no err , up casting
+} else
+sop("error!!!!");
+break;
+2. : Register Faculty
+3. Display all participant details 
+for(Person p : members)
+ if(p != null)
+  sop(p);//run time poly.
+break;
+eg : {s1,s2,f1,s3,null.....null}
+
+
+4. : Display specific participant details
+i/p : seat no
+0. : Exit
+
+
+1.  Upcasting
+
+IMPORTANT : Javac resolves method binding by type of the reference BUT JVM resolves it by type of the instance it's referring to .
+
+

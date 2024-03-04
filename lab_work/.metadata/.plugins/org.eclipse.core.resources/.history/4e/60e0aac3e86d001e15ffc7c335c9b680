@@ -1,0 +1,16 @@
+package customException;
+
+public class InvalidInputException extends Exception{
+	
+	public InvalidInputException(String msg) {
+		super(msg);
+		
+	}
+	
+	 public class AuthenticationException extends Exception {
+	    public AuthenticationException(String message) {
+	        super(message);
+	    }
+	}
+
+}

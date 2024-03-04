@@ -1,0 +1,103 @@
+Revise 
+
+ArrayList vs LinkedList
+Sorting in Java 
+
+1. Solve
+Sort the vehicles as per date n desc  order of  price (use custom ordering)
+
+1.1 Attach Iterator , to ArrayList n display the elements
+1.2 Attach ListIterator , to ArrayList n display the elements , in reverse order
+
+
+2. Sets Overview 
+refer to diagram
+2.1 Create HashSet of Strings n test API
+2.2 Create HashSet of user defined type (eg Emp ) n test the same.
+2.3 HashSet vs  LinkedHashSet
+2.4 Test TreeSet 
+
+
+Additional details in generic syntax
+
+ ? , extends , super
+
+? : wild card ( unbounded wild card) => un known type
+ ? can be replaced by ANY reference type in java.
+eg : Collections.shuffle(List<?> list)
+
+------------------------Pending----------------------------
+
+extends : represents upper bound in generic syntax
+super : represents lower bound in generic syntax
+
+? extends T => represents T or any of it's sub type
+
+? super T => represents T or any of it's super type.
+
+
+
+T : Emp 
+AL<? extends Emp> list = ????
+What all are legal options of RHS ?
+1. AL<Emp> : 
+2. AL<Mgr>
+3. AL<Worker>
+4. AL <SalesMgr>
+5. AL <Object>
+6. AL<Fruit>
+7. AL<Vehicle>
+Ans : 
+
+super : represents lower bound in generics
+? super T => T or it's super types
+
+eg
+AL<? super Mgr> list = ????
+What all are legal options of RHS ?
+1. AL<Emp> : 
+2. AL<Mgr>
+3. AL<Worker>
+4. AL <SalesMgr>
+5. AL <Object>
+6. AL<Fruit>
+7. AL<Vehicle>
+Ans : 
+
+ ArrayList constructor
+public ArrayList​(Collection<? extends E> c)
+Constructs a list containing the elements of the specified collection, in the order they are returned by the collection's iterator.
+
+What will happen ? (javac err or no err)
+
+ArrayList<Mgr> mgrs=new AL<>();
+mgrs.add(m1);mgrs.add(m2);mgrs.add(m3);
+
+HashSet<TempWorker> tempWorkers=new HS<>();
+tempWorkers.add(w1);tempWorkers.add(w2);tempWorkers.add(w3);
+
+LinkedList<Object> objs=new LL<>();
+objs.add("test");objs.add(1234); objs.add(new Date());
+
+ArrayList<Emp> emps=??????????????????
+1. new AL<>(mgrs);
+2. new AL<>(tempWorkers);
+3. new AL<>(objs);
+Ans : 
+
+eg of super : 
+Collections.sort(List,Comparator)
+
+eg : Collections.copy
+
+
+
+4. Maps Overview
+refer to diagram
+Objective : Save student details in the Map
+Data : prn (string) ,complete name(first name n last name), marks,course(enum), dob(LocalDate)
+Key : String
+Value : Student
+
+
+

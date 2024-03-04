@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="core.Task"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="core.Status"/>
+    <fullyQualifiedTypeName name="customException.TaskHandlingException"/>
+    <fullyQualifiedTypeName name="utils.TaskUtils"/>
+    <fullyQualifiedTypeName name="customException.CustomException"/>
+    <fullyQualifiedTypeName name="utils.CricketUtils"/>
+    <fullyQualifiedTypeName name="CustomException.customException"/>
+    <fullyQualifiedTypeName name="utils.TeamUtils"/>
+    <fullyQualifiedTypeName name="core.ProductItem"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="customException.AuthenticationException"/>
+    <fullyQualifiedTypeName name="utils.PetsUtils"/>
+    <fullyQualifiedTypeName name="core.Pet"/>
+    <fullyQualifiedTypeName name="core.Category"/>
+    <fullyQualifiedTypeName name="customException.InvalidInputException"/>
+    <fullyQualifiedTypeName name="customException.AuthorizationException"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,23 @@
+package core;
+
+public class User {
+	
+	private String loginId;
+	private String passwordU;
+	
+	public User(String loginId, String passwordU) {
+		super();
+		this.loginId = loginId;
+		this.passwordU = passwordU;
+	}
+
+	@Override
+	public String toString() {
+		return "User [loginId=" + loginId + ", passwordU=" + passwordU + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + ", toString()=" + super.toString() + "]";
+	}
+	
+	
+	
+
+}

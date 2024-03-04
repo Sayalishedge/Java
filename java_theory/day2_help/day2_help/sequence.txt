@@ -1,0 +1,95 @@
+Today's topics
+
+Java Data Types
+Java Operators : refer to readme 
+JVM Architecture Overview
+Enter OOPs  -- encapsulation , data hiding
+(class programming)
+
+
+
+Data Types in Java : Refer to readme
+
+Conversions regarding primitive data types ?
+
+Automatic conversions done by javac
+What will data type of result of
+1. byte & byte : int
+2. byte & short : int
+3. short & short : int
+4. int & long : long
+5. long & float : float
+6. float & double : double
+7. byte/short/int....& double : double
+
+
+
+
+
+
+
+Java Operators :
+Refer to readme : day1-data\day1_help\readmes\java operators.txt
+
+Overview of JVM Architecture
+Refer : Java-Tut-Slides & JVM-Architecture-Overview diagram.
+
+----------------------
+Enter OOP
+refer to "day2-data\day2_help\readmes\regarding class n object.txt"
+Read till the topics covered today.
+
+
+Encapsulation -- Class Programming (refer to 
+class,object,state,behaviour
+Objective --
+Create a class to represent 3D Box
+class Box ---tight encapsulation
+state -- width,height , depth --- double private 
+paramterized constr --3 arg constr.
+Instance Methods
+1. To return Box details in string form (dims of Box)
+method declaration --- access specifier , ret type , name , args
+method definition --body
+
+2. To return computed volume of the box.
+
+
+
+
+
+
+this --keyword in java => current object reference
+Usages
+1. To un-hide instance variable from local variable.
+eg : this.width=width;
+
+2. To invoke constructor of the same class , from different constructor.
+eg : this(side,side,side);
+
+
+Create another class : TestBox --for  UI.
+Add psvmain(..){...}
+Use scanner --to accept box dims from user, create box instance.
+display its details & volume.
+
+-----------------
+Pointers vs java references
+Similarity -- Pointer & reference --hold an address to the object created on heap.
+Difference -- To add robustness to the language 
+pointer arithmatic is not allowed in java.
+
+reference --- holds internal representation of address
+
+eg : 
+Box b1=new Box(1,2,3);
+b1++; //javac err
+b1 += 10; //javac err
+String s=new String("hello");
+s ++;//javac err
+
+
+Mem pictures : refer to "day2_help\mem-pic.png"
+
+Garbage Collection : refer to "day2_help\readmes\regarding GC.txt"
+

@@ -1,0 +1,308 @@
+Day 1
+
+1. Ensure that you have followed "day1-data\day1_help\Installation instructions for JDK n IDE.txt" & installed JDK 11 on your computer. 
+Confirm that you have also downloaded Eclipse IDE (STS 3.9.18)
+
+In case of any problems , take help of lab faculty.
+
+2. Edit System environment variable "Path"
+Must have 1st entry in the Path as : <JDK>/bin
+(Already shown in the theory session)
+
+3. Revise class work using 
+3.1 Refer to "day1-data\day1_help\sequence.txt
+3.2 Refer to code samples from : day1.1
+
+
+4. Go through some of the readymade code samples given for practice.
+day1_help\rdy_code\Test1.txt, Test2.txt ,Test3.txt, Test4.txt
+(Refer to while & switch-case syntax carefully)
+ 
+
+Solving assignments : 
+
+1. The java program should run till user enters "quit" or any other option than add or sub or mult or div.
+Prompt user to enter the input operation : (add|sub|mult|div) & 2 numbers(double)
+Display the result of the operation.
+Use Scanner for accepting all inputs from user. 
+Hint : use switch-case
+
+
+2. Find the compound interest n the amount 
+Accept principle , interest rate n time period in years from user , using scanner.
+Formula : 
+Compound Interest=Principle*(1+(rate / 100))^time – Principle
+time : time period in years.
+
+
+
+Day 2
+
+1. Refer to today's sequence : "day2_help\sequence.txt" & today's code samples for revision.
+
+Important Readmes 
+Today's : sequence.txt
+day2_help\readmes\Regarding Java Data Types.txt
+day2_help\readmes\regarding class n object.txt
+day2-data\day2_help\readmes\regarding GC 
+day2-data\day1_help\readmes\java operators
+
+2. Try to complete pending assignments first (if any !)
+
+3. Solve 
+Create a java application for the following.
+
+3.1 Create a Customer class , with data members (all private : tight encapsulation)
+name(String),email(String),age(int), creditLimit(double)
+
+Do not supply any constructor first(this is to confirm a default constructor)
+Add a method to return all customer details , in a string .
+
+3.2 Create RegisterCustomer class with main method
+Create a customer class instance , using default constructor.
+Display customer details.
+Observe n conclude.
+
+3.3 Now add a parameterized constructor to the  Customer class
+
+3.4 Create RegisterCustomer2 class with main method
+Accept customer details from user using scanner.
+Display customer details.
+
+4. Solve Tank assignment along with memory picture.
+
+What will be the output ?
+
+class Tank {
+  private int level;
+  Tank(int level)
+   {
+     this.level=level;
+   }
+  public void setLevel(int level)
+  {
+    this.level=level;
+  }
+  public int getLevel()
+  {
+    return this.level;
+  }
+}	
+
+public class Assignment {
+  public static void main(String[] args) {
+    Tank t1 = new Tank(10);
+    Tank t2 = new Tank(20);
+     System.out.println("1: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+    t1 = t2;
+    System.out.println("2: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+    t1.setLevel(27);
+     System.out.println("3: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+    t2.setLevel(t1.getLevel()+10);
+     System.out.println("4: t1.level: " + t1.getLevel() +
+          ", t2.level: " + t2.getLevel());
+  }
+}
+
+Are there any objects marked for GC ?
+
+
+Day 3
+
+
+1. Revise today's class work with sequence.txt n code samples.(from day3.1 n day3.2)
+With lab faculty's help , do complete today's  assignments.
+
+1.5 (Optional assignment)
+Add a method to Box class to return a new Box with modified offset dims & test it with TestBox.java
+
+eg : 1st Box dims 10,20,30
+User enters offsets in dims  as 3,-4,5
+2nd box should have dims 13,16,35
+Hint in TestBox :
+Box b1=new Box(sc.nextDouble(),sc.nextDouble(),sc.nextDouble());
+sop("Enter offsets in dims : wOff , dOff hOff");
+Box b2=b1.createNewBox(sc.nextDouble(),sc.nextDouble(),sc.nextDouble());
+
+2.Solve (Mandatory assignment)
+
+Create a Point class Point2D  , under package "com.acts.geometry" for representing a point in x-y co-ordinate system.
+
+2.1 Create a parameterized constructor to accept x & y co-ords.
+
+2.2 Add public String show()) --to return point's x & y co-ords
+
+2.3 Add equals method to Point2D class : boolean returning method : must return true if both points are having same x,y co-ords or false otherwise. : 
+
+2.4 Write a Tester class to test your functionality , TestPoint.java , under the package "tester"
+Create 2 points , using user supplied inputs
+Display x , y co ordinates .
+Display message "SAME" if 2 points are same , otherwise display "DIFFERENT"
+
+
+
+Day 4
+0. Refer to tdoay's sequence.txt
+
+1. import day4.1 , to revise array of references  n static keyword
+
+2. import day4.2 , to revise basics in inheritance 
+2.1 Inheritance hierarchy
+2.2constructor invocation (super keyword)
+
+
+2.5 Pls go through inheritance readme , till the topics completed today.
+
+
+Day 5
+
+1. Refer to today's sequence
+import day5.1 n day5.2 in your workspace to revise
+1.1 Constructor invocation in inheritance hierarchy
+1.2 super keyword usages
+1.3. run time polymorphism 
+1.4 upcasting
+
+
+2. Solve Players based assignment , with the help of lab faculty.
+Refer : assignment.png
+
+
+3. What will happen ? (Optional but recommended !)
+(Guess the output along with memory diagrams) : Understand with lab faculty's help.
+Refer : params_passing
+TestParamPassing1.java
+TestParamPassing2.java
+
+
+Day 6
+1. Gentle Reminder !
+Please complete Q 3 of Day 5 (Guess the o/p)
+
+2. Complete earlier pending work
+
+3. No new assignments !
+
+4. import day6.1 , to revise
+downcasting n instanceof keyword
+
+5. import day6.2 to revise
+Abstraction
+abstract classes n intro to interfaces n implementation class syntax
+
+
+
+Day 7
+1. Revise interfaces n exception handling.
+Follow today's sequence n code samples.
+
+2. Refer : "lab work 7\Interface Assignment.png" 
+Solve it as discussed.
+
+
+Optional assignment  (For more practice)
+
+Continue with Player scenario , assignment of Day 5
+
+3. Add a functionality in the sub classes.
+For CricketPlayer : add a method to obtain battingAverage
+For FootballPlayer : add a method : defendGols
+For TennisPlayer : add a method : acesServed
+
+3. Can you add abstraction in the Player class ?
+If yes : do it
+
+33 Add a class TestPLayers in the tester package , with main(...)
+Prompt user for max no of players.
+Options
+1. Add Cricket Player details
+2. Add Football Player details
+3. Add Tennis Player details
+4. Display only name n country for all the players added.
+5. Accept player no from user n invoke play method
+6. Accept player no from user n invoke player specific method (eg : In case of a cricketplayer : battingAverage or in case of tennis player : acesServed.
+
+
+
+Day 8
+1. import day8.1 , to revise 
+try with resources n custom exceptions
+
+2. import day8.2 , to revise
+String related API
+
+
+Solve (With help the lab faculty)
+
+3.  Refer to eclipse project day6.1 from lab work 6
+3.1 Refer to the Classes : Person , Student , Faculty.
+Equality rule : 2 Students/Faculties are the SAME(Duplicate) , if n only if their first name n last name is same.
+How will you add this rule ?
+Hint override equals method , in Person class.
+
+3.2 Write a new Tester (TestEquals)
+Use try-with-resources for Scanner
+Accept details of the 2 students n 1 faculty.
+In case of duplicate , raise the custom exception : InvalidInputException , with error message : dup names detected!!!!
+In case of no duplicates , print the students n faculty details 
+
+Optional part 
+Add above validation rule (check for dups) in the event organizer app n test it !
+
+Day 9
+1. import day9.1 , to revise
+overriding of equals method , with single field : emp id
+
+2. import day9.2 , to revise
+overriding of equals method , with multiple fields : emp id n name
+
+ 
+3. import day9.3 , to revise
+3.1 Date Time handling in Java 8 onwards(MOdern Java)
+3.2 validation rules handling , custom exceptions
+3.3 wrapper classes in java
+
+4. import day9.4 , to revise
+4.1 enum (Color)
+4.2 equals method again 
+4.3 Beginning of showroom management system.
+
+5. Please complete Day 8's assignments.
+
+
+To Lab Faculty : 
+Please help students to complete the pending assignments
+
+
+Day 10
+1. import day10.1 to revise , Showroom management case study
+1.1 Exception handling
+1.2 equals
+1.3 validation rules
+1.4 enum
+1.5 Tester (ShowroomManagement.java)
+
+2. import day10.2 , to understand dis advantages of non generic syntax
+Revise generic class syntax
+
+3. MUST revise Collection framework overview.
+
+4. Tomorrow , after explaining ArrayList API with simple java class (eg : String / Integer) , we are going to port 
+ShowroomManagement.java , to ArrayList .
+
+
+To Lab faculty :
+I have already shown to the students , how to attach debugger , in IDE
+Please revise n help them to complete pending work.
+
+
+
+
+
+
+
+
+

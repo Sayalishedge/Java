@@ -1,0 +1,49 @@
+package utils;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import core.Category;
+import core.Pet;
+import customException.InvalidInputException;
+
+
+import tester.TestPms;
+
+public class PetsUtils {
+	
+	
+	public static boolean checkAdmin(String id,String pass)throws InvalidInputException{
+		if(id.equals("admin") && pass.equals("admin"))
+			return true;
+		return false;
+		
+	}
+	
+	public static boolean checkUser(String id1,String pass1)throws InvalidInputException{
+		if(id1.equals("c1") && pass1.equals("c1"))
+			return true;
+		return false;
+		
+	}
+	
+	 public static void checkForDuplicatePid(int petId,HashMap<Integer, Pet> petsHmap) throws InvalidInputException{
+		 
+		 Pet p = new Pet(petId);
+		 if(petsHmap.containsKey(p))
+			 throw new InvalidInputException("Duplicate PetId detected");
+		 System.out.println("Duplicate pet Id found");
+	}
+	 
+	public static Category parseAndValidateCategory(String category) throws InvalidInputException{
+		return Category.valueOf(category.toUpperCase());
+	}
+	
+	
+	 
+	 
+	 
+}
+
+
+

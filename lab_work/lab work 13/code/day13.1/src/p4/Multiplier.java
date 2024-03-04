@@ -1,0 +1,11 @@
+package p4;
+
+public class Multiplier implements Computable {
+
+	@Override
+	public double performOperation(double a, double b) {
+		// TODO Auto-generated method stub
+		return a*b;
+	}
+
+}

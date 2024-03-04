@@ -1,0 +1,139 @@
+package tester;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
+import static utils.PetsUtils.*;
+
+import core.Category;
+import core.Order;
+import core.Pet;
+import core.Status;
+import customException.*;
+
+public class TestPms {
+
+	public static void main(String[] args) {
+		try(Scanner sc = new Scanner(System.in)){
+			
+			boolean adminAuthorization = false;
+			boolean userAuthorization = false;
+			
+			HashMap<Integer, Pet> petsHmap = new HashMap<>();
+			HashMap<Integer, Order> orderHmap = new HashMap<>();
+			
+			boolean flag = false;
+			while(!flag) {
+		
+			System.out.println("1.Login\n"
+					+ "2. Add new Pet\n"
+					+ "3. Update Pet Details\n"
+					+ "4. Display all available pets\n"
+					+ "5. Order a pet\n"
+					+ "6. Check Order status by Order Id\n"
+					+ "7. Update Order Status\n"
+					+ "8. Exit");
+			switch (sc.nextInt()) {
+			case 1:
+				System.out.println("1. Admin\n2. User");
+					switch (sc.nextInt()) {
+						case 1:
+							System.out.println("Enter loginId");
+							String id = sc.next();
+							System.out.println("Enter password");
+							String pass = sc.next();
+							adminAuthorization = checkAdmin(id,pass);
+							System.out.println("Admin authentication successful");
+						break;
+						case 2:
+							System.out.println("Enter loginId");
+							String id1 = sc.next();
+							System.out.println("Enter password");
+							String pass1 = sc.next();
+							userAuthorization = checkUser(id1,pass1);
+							System.out.println("User authentication successful");
+						
+						break;
+			
+					}
+					if(adminAuthorization || userAuthorization)
+						System.out.println("Login successful");
+					else
+						throw new AuthenticationException("Auhtentication failed...");	
+			
+				break;
+				
+				
+			case 2:
+				if(adminAuthorization) {
+					System.out.println("Enter pet id");
+					int pid = sc.nextInt();
+					checkForDuplicatePid(pid,petsHmap);
+					System.out.println("Enter name, category,unitPrice, stocks");
+					//int petId, String name, Category category, double unitPrice, int stocks
+					Pet p = new Pet(pid, sc.next(), parseAndValidateCategory(sc.next()),sc.nextDouble(), sc.nextInt());
+					petsHmap.put(pid, p);
+					System.out.println("Pet added successfully");
+				}
+				else throw new AuthorizationException("Admin only functionality");
+				break;
+				
+			case 3:
+				if(adminAuthorization) {
+					System.out.println("Enter Pet ID");
+					int pid = sc.nextInt();
+					checkPetId(pid, petsHmap);
+					Pet p = petsHmap.get(pid);
+					System.out.println("Enter name, category, unitPrice,stocks");
+					p.setName(sc.next());
+					p.setCategory(parseAndValidateCategory(sc.next()));
+					p.setUnitPrice(sc.nextDouble());
+					p.setStocks(sc.nextInt());
+					
+					
+					
+					
+				}
+				else throw new AuthorizationException("Admin only functinality");
+				
+				break;
+				
+			case 4:
+				if(adminAuthorization || userAuthorization)
+				{
+					System.out.println("All Pet Details ");
+					petsHmap.values().stream().forEach(p -> System.out.println(p));
+				}
+				else
+					throw new AuthenticationException("Authentication failed...");
+				break;
+				
+			case 5:	//order a pet
+				
+				//int petId, int quantity, Status status
+				System.out.println("Enter pet id, quantity");
+				int pid = sc.nextInt();
+				int quantity = sc.nextInt();
+				
+				//Order o = new Order(sc.nextInt(),sc.nextInt());
+				
+				break;
+				
+		
+			case 8:
+				flag = true;
+				break;
+			}
+			
+			
+			
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

@@ -1,0 +1,222 @@
+1. var-args syntax in Java 
+var-args  ...
+variable args syntax
+Meaning : Passing variable no of arguments to a method
+Rule : Must be last arg in the method args.
+Can use primitive type as well as ref types.
+
+Legal ---
+void doStuff(int... x) {
+//B.L	
+ } // expects from 0 to many ints
+
+Usage : ref.doStuff();//no args
+int[] ints={1,2,3,4};
+ref.doStuff(ints);//array
+ref.doStuff(20,34,56);// comma separated list of args
+
+
+// as parameters
+void doStuff2(char c, int... x) {..... } // expects first a char,
+// then 0 to many ints
+eg : ref.doStuff2('a',1,2,3,5);//no javac err
+ref.doStuff2();//javac err : 1st arg missing
+
+
+class Test {
+void doStuff3(Animal... animals) { 
+   for(Animal a : animals)
+     sop(a.getName());
+} // 0 to many Animals
+}
+Test ref=new Test();
+invocations ---
+ref.doStuff3();//no javac err
+Animal animals[]={new Cat(),new Dog(),new Horse()};//4 objs 
+ref.doStuff3(animals);//no javac err
+Animal a1=new Horse(); 
+Animal a2=new Cat(); 
+Animal a3=new Dog();
+ref.doStuff3(a1,a2,a3);
+
+Illegal: javac error
+void doStuff4(int x...) {....} // bad syntax : javac err
+void doStuff5(int... x, char... y) {...} // too many var-args
+void doStuff6(String... s, byte b) { } // var-arg must be last
+
+Can you create a fixed size List from the var args ? YES
+java.util.Arrays method
+public static <T> List<T> asList(T... args)
+This method can NOT be re written using wild card(?) ,since it doesn;t allow var-args along with a wild card.
+
+eg : String[] names={"one","two","three"};
+List<String> stringList=Arrays.asList(names);
+sop(stringList);//prints the contents
+stringList.set(0,"ONE");
+sop(stringList);
+//stringList.add(0,"123456");//run time err
+sop(stringList);
+stringList.remove(0);//run time err
+sop(stringList);
+
+Can you re write following non generic method , in a generic manner ?
+Collections class API
+public static void shuffle​(List<?> list)
+OR
+public static <T> void shuffle​(List<T> list)
+
+
+2. Additional details in generic syntax
+
+ ? , extends , super
+
+? : wild card ( unbounded wild card) => un known type
+ ? can be replaced by ANY reference type in java.
+eg : Collections.shuffle(List<?> list)
+
+extends : represents upper bound in generic syntax
+super : represents lower bound in generic syntax
+
+? extends T => represents T or any of it's sub type
+
+? super T => represents T or any of it's super type.
+
+eg :
+Constructor of ArrayList<E>
+public ArrayList(Collection<? extends E> c)
+E : BankAccount
+? extends BankAccount => BankAccount or any of its sub type
+Meaning : This ctor creates populated AL<BankAccount> from
+ANY Collection(AL/LL/Vector, HS/LHS/TS) of type BankAccount or any of sub type(eg : SavingsAccount , HomeLoanAccount...)
+
+What will happen ?
+Vector<Fruit> fruits=new Vector<>(Arrays.asList(new Mango(),new Cherry()));
+ArrayList<BankAccount> list=new AL<>(fruits);//javac err
+
+Solve 
+
+T : Emp 
+AL<? extends Emp> list = ????
+What all are legal options of RHS ?
+1. AL<Emp> : 
+2. AL<Mgr>
+3. AL<Worker>
+4. AL <SalesMgr>
+5. AL <Object>
+6. AL<Fruit>
+7. AL<Vehicle>
+Ans : 1,2,3,4
+
+super : represents lower bound in generics
+? super T => T or it's super types
+
+eg : Collections class API for sorting the list , using custom ordering
+public static <T> void sort(List<T> someList,Comparator<? super T> comp)
+Meaning :
+T : Emp
+To sort the list of emps , as per custom ordering
+You can pass the Comparator of the types
+1. Emp
+2.Mgr
+3. SalesMgr
+4. Worker
+5. Object
+Ans : 1 , 5
+
+
+eg
+AL<? super Mgr> list = ????
+What all are legal options of RHS ?
+1. AL<Emp> : 
+2. AL<Mgr>
+3. AL<Worker>
+4. AL <SalesMgr>
+5. AL <Object>
+6. AL<Fruit>
+7. AL<Vehicle>
+Ans : 1 , 2 , 5
+
+ ArrayList constructor
+public ArrayList​(Collection<? extends E> c)
+Meaning ???
+
+What will happen ? (javac err or no err)
+
+ArrayList<Mgr> mgrs=new AL<>();
+mgrs.add(m1);mgrs.add(m2);mgrs.add(m3);
+
+HashSet<TempWorker> tempWorkers=new HS<>();
+tempWorkers.add(w1);tempWorkers.add(w2);tempWorkers.add(w3);
+
+LinkedList<Object> objs=new LL<>();
+objs.add("test");objs.add(1234); objs.add(new Date());
+
+ArrayList<Emp> emps=??????????????????
+1. new AL<>(mgrs);
+2. new AL<>(tempWorkers);
+3. new AL<>(objs);
+Ans : 
+
+eg of super : 
+Collections.sort(List,Comparator)
+
+eg : Collections.copy
+
+
+
+3. Maps Overview
+refer to diagram
+
+
+Objective : 
+Perform CRUD operations on student details , ensuring constant time performance(O(1))
+Fields  : prn (string) : unique ID ,complete name(first name n last name), marks,course(enum), dob(LocalDate)
+
+3.1 Save student details 
+3.2 Retrieve specific student details
+3.3 Display all student details
+3.4 Cancel Admission
+3.5 Display all students from a specific course
+
+
+
+
+4. Refer to "java8_new_features.txt"
+
+5. Refer to "regarding lambdas"
+
+
+
+1. Functional interface =>  I/f containing  SAM + optionally default n static methods
+eg : Runnable , Comparable , Comparator ... : existed before Java 8
+
+
+New anno since Java 8 : @FunctionalInterface
+New package  : java.util.function : consists of func i/fs ---Consumer, Supplier, Predicate,Function,BiConsumer
+
+syntax of lambda expr in Java 
+(args) -> {....}
+
+IMPORTANT : Can func i/f be substituted by lambda expr ? YES
+Why : since it holds single abstract behavior --which can be replaced by lambda expr
+
+2. Enter Functional programming in Java
+refer : "regarding lambdas"
+
+1. Create your own functional interface n use it in lambda expression
+
+eg : Perform ANY arithmetic operation on 2 double values & return the result
+eg --add/multiply/subtract/divide....  ANY such operation !
+
+1.1 Create i/f : SAM => Functional i/f
+eg : Computable 
+
+
+1.2  Create utility i/f :  ComputationUtils :  to add a static method
+to return  result of  ANY operation performed on 2 double operands
+
+1.3 Create a Tester n use it.
+Operations to perform : add/multiply/subtract/divide ....
+
+
+

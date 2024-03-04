@@ -1,0 +1,6 @@
+1. Invoke stored procedure n check results
+2. Enter multi threading
+2.1 Thread state transitions
+2.2 Threads API
+2.3 Testing Concurrency
+2.4 Synchronization : need n implementation

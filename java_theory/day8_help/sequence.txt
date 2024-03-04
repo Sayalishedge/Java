@@ -1,0 +1,142 @@
+Today's Topics
+
+Revise 
+Exception handling 
+Continue to
+try-with-resources
+Custom Exceptions
+String Handling in Java
+Java 8 Date Time Handling 
+Wrapper classes in Java
+
+
+
+
+What is exception ? --Run time error detected by JVM
+
+Why exception handling ?
+1. To continue with the program execution , even after run time errs(eg :invalid inputs,B.L failures,validation failures, file not found, invalid casting....)
+2. To separate B.L (try block) from error handling logic(catch)
+3. To avoid un necessary checking .
+
+Flow of exception handling
+Eg. Trigger : Run time error -->  int div by 0 ---> 
+syntax : throw Throwable instance;
+throw new ArithmeticException("/ by 0");
+
+JVM chks ---MATCHING catch clause
+exists -- enter catch --continues..
+doesn't exist -- JVM def handler -- aborts the code 
+
+
+
+
+Currently "throw" keyword : is used by JVM to raise system excs(eg : AE, AOBExc, NPE,ClassCastExc.....,IOException, SocketExc, SQLExc....)
+Later , prog will use the "throw" keyword to raise custom excs.
+
+
+Inheritance hierarchy of exc handling classes
+
+
+try-catch syntax. Solve which ones are legal ?
+try {....} catch (AE e ){..} : legal
+try {....} : illegal
+try {....} catch (AE e ){..}  catch (NPE e) {..} catch(Exception e) {....} : legal
+try {....} catch(Exception e) {....} catch (AE e ){..}  catch (NPE e) {..} : illegal
+try {....} catch (AE | NPE e ){..}  catch(Exception e) {....} : legal 
+try {....} finally {...}  : legal
+try {....} catch(Exception e){...} finally {...} : legal
+try {....} finally {...} catch(Exception e){..} : illegal
+
+checked vs un checked exceptions
+who doesn't differentiate between checked vs un checked exceptions --JVM
+(Meaning : If there exists un handled chked or un chked exc : JVM aborts code)
+
+who differentiates n how ? :  javac
+javac forces handling of checked excs upon prog
+2 ways of satisfying javac :
+for actual handling : try-catch
+OR
+throws keyword : for delegating the exc handling to the caller 
+
+
+throw vs throws
+throw :keyword used to  raise the  exception(JVM : system/built-in excs , Prog : custom exc), appears in method definition
+syntax : throw Throwable instance;
+
+throws : meant for javac , appears in method declaration 
+eg : public void show() throws IOException,InterruptedException
+{
+ ......
+}
+Meaning : show() : may throw the exc(possibility) , curnt method is NOT handling the exc/s
+so its' caller should handle.
+
+When is adding throws keyword mandatory : In case of un handled n checked excs
+otherwise  : javac err
+
+
+finally : always executed(i.e in case of no exc as well as excs/ method rets) except : JVM termination(System.exit(0))
+typical use case  : cleaning up of non java resources(eg : File handle, socket , db connection, Std in)
+
+
+------------------
+1. set up a demo of finally n method returning
+
+2. 
+try-with-resources
+
+
+3. Custom exceptions
+objective : Accept speed of a vehicle from user (scanner) --running on a highway
+min speed : 30
+max speed : 80
+
+In case of speed outside the range --Prog will have to detect the err --create instance of user defined exc class --explicitly throw custom exc to the code. The alteration in flow will be managed by JVM.
+
+
+Steps
+1.Create custom exception class : extends Throwable/Error/Exception/RuntimeExc....
+eg : public class SpeedOutOfRangeException extends Exception{
+
+}
+1.1  Add parameterized constr : to initialize an  err mesg
+(i.e to call super class's parameterized ctor)
+
+Exception(String errMesg)
+
+2. Create a separate class  eg :  ValidationRules
+add a static method for validation the speed
+
+3. Create Tester : UI --scanner --accept the speed n simply call validateSpeed of the SpeedUtils  class
+-------------------------
+
+4. String Handling
+4.1 Immutability of strings
+4.2 == vs equals
+4.3 literal vs non literal string
+4.4 API
+
+IMPORTANT 
+Regarding equlity testing in Java)
+
+Object class 
+public boolean equals(Object anotherObj)
+Rets true if n only if , invoker n arg , referes to the SAME object
+(i.e based upon ref equality)
+
+java.lang.String class has overridden the inherited equals 
+--to replace ref equality by content equality(i.e based upon char seq , in case sensitive manner)
+
+------------------Pending-------------------
+
+5. Date Time Handling 
+refer : readme
+
+6. Wrapper classes
+refer : readme
+
+
+
+
+
